@@ -1,11 +1,10 @@
-from fastapi import APIRouter, Depends, HTTPException
-from app.core.auth import get_api_key
+from fastapi import APIRouter, HTTPException
 from app.schemas.coach import CoachRequest, PropostaRequest, BriefingRequest
 from app.services.coach_service import CoachService
 from app.services.proposta_service import PropostaService
 from app.services.briefing_service import BriefingService
 
-router = APIRouter(prefix="", tags=["coach"], dependencies=[Depends(get_api_key)])
+router = APIRouter(prefix="", tags=["coach"])
 coach_service = CoachService()
 proposta_service = PropostaService()
 briefing_service = BriefingService()
