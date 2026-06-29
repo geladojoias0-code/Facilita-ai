@@ -5,7 +5,7 @@ import os
 load_dotenv()
 
 class Settings(BaseSettings):
-    MINHA_API_KEY: str
+    MINHA_API_KEY: str = os.getenv("MINHA_API_KEY", "changeme")
     SERPAPI_KEY: str | None = None
     OPENROUTER_KEY: str | None = None
     DB_PATH: str = os.getenv("DB_PATH", "./facilita_ai.db")
