@@ -1,12 +1,11 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, HTTPException
 from typing import List
 from app.schemas.lead import LeadCreate, LeadOut, LeadUpdateStatus
-from app.core.auth import get_api_key
 from app.services.lead_service import LeadService
 from app.services.producao_service import IntegrationService
 from app.core.config import settings
 
-router = APIRouter(prefix="", tags=["leads"], dependencies=[Depends(get_api_key)])
+router = APIRouter(prefix="", tags=["leads"])
 
 lead_service = LeadService()
 integration = IntegrationService()
