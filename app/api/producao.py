@@ -1,9 +1,8 @@
-from fastapi import APIRouter, Depends, HTTPException
-from app.core.auth import get_api_key
+from fastapi import APIRouter, HTTPException
 from app.services.producao_service import producao_service
 from app.schemas.lead import ProducaoCreate
 
-router = APIRouter(prefix="", tags=["producao"], dependencies=[Depends(get_api_key)])
+router = APIRouter(prefix="", tags=["producao"])
 
 @router.get("/producao/{place_id}")
 def get_producao(place_id: str):
