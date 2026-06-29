@@ -1,11 +1,11 @@
 services:
   - type: web
-    name: facilita-ai-crm
+    name: facilita-api
     env: python
-    plan: free
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    runtime: python312
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: MINHA_API_KEY
-      - key: SERPAPI_KEY
-      - key: OPENROUTER_KEY
+      - key: DB_PATH
+        value: ./facilita_ai.db
