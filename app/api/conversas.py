@@ -1,9 +1,8 @@
-from fastapi import APIRouter, Depends
-from app.core.auth import get_api_key
+from fastapi import APIRouter
 from app.schemas.conversa import ConversaSchema
 from app.services.lead_service import ConversaService
 
-router = APIRouter(prefix="", tags=["conversas"], dependencies=[Depends(get_api_key)])
+router = APIRouter(prefix="", tags=["conversas"])
 conversa_service = ConversaService()
 
 @router.post("/conversa")
