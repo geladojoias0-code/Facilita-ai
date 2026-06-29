@@ -1,8 +1,7 @@
-from fastapi import APIRouter, Depends
-from app.core.auth import get_api_key
+from fastapi import APIRouter
 from app.services.dashboard_service import DashboardServiceAPI
 
-router = APIRouter(prefix="", tags=["dashboard"], dependencies=[Depends(get_api_key)])
+router = APIRouter(prefix="", tags=["dashboard"])
 service = DashboardServiceAPI()
 
 @router.get("/dashboard")
