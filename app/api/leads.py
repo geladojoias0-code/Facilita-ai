@@ -21,6 +21,13 @@ def get_lead(place_id: str):
 def get_leads(limit: int = 100):
     return lead_service.list_leads(limit)
 
+@router.post("/leads")
+def create_lead(payload: LeadCreate):
+    """Criar um novo lead"""
+    lead_data = payload.dict()
+    lead_service.create_or_update(lead_data)
+    return {"ok": True, "place_id": lead_data.get("place_id")}
+
 @router.get("/lead")
 def find_lead(place_id: str):
     l = lead_service.get_lead(place_id)
